@@ -1,17 +1,17 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import './index.scss'
 
-export const Bio = forwardRef((props, ref) => {
-  return <StaticQuery
+export const Bio = () => (
+  <StaticQuery
     query={bioQuery}
     render={data => {
       const { author, social, introduction } = data.site.siteMetadata
 
       return (
-        <div ref={ref} className="bio">
+        <div className="bio">
           <div className="author">
             <div className="author-description">
               <Image
@@ -29,11 +29,6 @@ export const Bio = forwardRef((props, ref) => {
                 </Link>
                 <div className="author-introduction">{introduction}</div>
                 <p className="author-socials">
-                  {social.instagram && (
-                    <a href={`https://www.instagram.com/${social.instagram}`}>
-                      Instagram
-                    </a>
-                  )}
                   {social.github && (
                     <a href={`https://github.com/${social.github}`}>GitHub</a>
                   )}
@@ -50,11 +45,6 @@ export const Bio = forwardRef((props, ref) => {
                       Facebook
                     </a>
                   )}
-                  {social.linkedin && (
-                    <a href={`https://www.linkedin.com/in/${social.linkedin}/`}>
-                      LinkedIn
-                    </a>
-                  )}
                 </p>
               </div>
             </div>
@@ -63,11 +53,11 @@ export const Bio = forwardRef((props, ref) => {
       )
     }}
   />
-})
+)
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile.png/" }) {
+    avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
       childImageSharp {
         fixed(width: 72, height: 72) {
           ...GatsbyImageSharpFixed
@@ -83,8 +73,6 @@ const bioQuery = graphql`
           github
           medium
           facebook
-          linkedin
-          instagram
         }
       }
     }

@@ -1,32 +1,48 @@
 module.exports = {
-  title: `GrooTil`,
-  description: `Posting my daily TIL`,
-  author: `Juhyeong Ko`,
-  introduction: `Daily programmer interested in WebRTC.`,
-  siteUrl: `https://grootil.netlify.com`, // Your blog site url
+  title: `Groot Til`,
+  description: `Blog posted about my daily learned stuffs.`,
+  author: `Juhyeog Ko`,
+  introduction: `Web Engineer Interested in WebRTC`,
+  siteUrl: `https://grootil.netlify.app`,
   social: {
-    twitter: ``, // Your Twitter account
-    github: `https://github.com/IamGroooooot`, // Your GitHub account
-    medium: ``, // Your Medium account
-    facebook: ``, // Your Facebook account
-    linkedin: ``, // Your LinkedIn account
-    instagram: ``, // Your Instagram account
+    twitter: ``,
+    github: `IamGroooooot`,
+    medium: ``,
+    facebook: ``,
   },
-  icon: `content/assets/grootfav.png`, // Add your favicon
-  keywords: [`blog`],
+  icon: `content/assets/blog-favicon.png`,
+  thumbnail: `https://grootil.netlify.app/groot.png`,
+  resume: {
+    title: 'About Me',
+    description: 'docs: Update RESUME.md for introducing myself',
+    thumbnail: 'https://grootil.netlify.app/groot.png',
+  },
+  keywords: [
+    `blog`,
+    `til`,
+    `javascript`,
+    `typescript`,
+    `web`,
+    `react`,
+    `webrtc`,
+    `frontend`,
+    `backend`,
+    `development`,
+  ],
   comment: {
-    disqusShortName: '', // Your disqus-short-name. check disqus.com.
-    utterances: 'IamGroooooot/grootil', // Your repository for archive comment
+    disqusShortName: '',
+    utterances: 'IamGroooooot/grootil',
   },
   configs: {
-    countOfInitialPost: 10, // Config your initial count of post
+    countOfInitialPost: 10,
   },
   sponsor: {
-    buyMeACoffeeId: 'codinggroot',
+    buyMeACoffeeId: '',
   },
   share: {
-    facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
+    facebookAppId: '', // v3.2
   },
-  ga: '0', // Add your google analytics tranking ID
-  ad: '', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
+  revueId: '',
+  ga: '',
+  sentryDsn: '',
 }

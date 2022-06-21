@@ -29,12 +29,6 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-katex`,
-            options: {
-              strict: `ignore`,
-            },
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 1200,
@@ -44,7 +38,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images-medium-zoom`,
             options: {
-              margin: 36,
+              margin: 12,
               scrollOffset: 0,
             },
           },
@@ -71,8 +65,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: metaConfig.ga,
-        head: true,
-        anonymize: true,
       },
     },
     {
@@ -82,7 +74,7 @@ module.exports = {
         short_name: metaConfig.title,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: metaConfig.icon,
       },
@@ -91,25 +83,6 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: 'https://grootil.netlify.app',
-        sitemap: 'https://grootil.netlify.app/sitemap.xml',
-        policy: [
-          {
-            userAgent: '*',
-            allow: '/',
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: metaConfig.ad,
       },
     },
     `gatsby-transformer-sharp`,

@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   globals: {
     graphql: false,
   },
@@ -14,5 +14,8 @@ module.exports = {
       experimentalObjectRestSpread: true,
       jsx: true,
     },
+  },
+  rules: {
+    'react-hooks/rules-of-hooks': 'error',
   },
 }

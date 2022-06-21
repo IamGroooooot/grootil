@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import _ from 'lodash'
-import React, { useMemo, useRef, useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import { Bio } from '../components/bio'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
@@ -21,6 +21,9 @@ function getDistance(currentPos) {
 }
 
 export default ({ data, location }) => {
+  const [count, countRef, increaseCount] = useRenderedCount()
+  const [category, selectCategory] = useCategory()
+
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
@@ -28,14 +31,6 @@ export default ({ data, location }) => {
     () => _.uniq(posts.map(({ node }) => node.frontmatter.category)),
     []
   )
-  const bioRef = useRef(null)
-  const [DEST, setDEST] = useState(316)
-  const [count, countRef, increaseCount] = useRenderedCount()
-  const [category, selectCategory] = useCategory(DEST)
-
-  useEffect( tabRef => {
-    setDEST(!bioRef.current ? 316 : bioRef.current.getBoundingClientRect().bottom + window.pageYOffset + 24 )
-  }, [bioRef.current])
 
   useIntersectionObserver()
   useScrollEvent(() => {
@@ -53,7 +48,7 @@ export default ({ data, location }) => {
   return (
     <Layout location={location} title={siteMetadata.title}>
       <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
-      <Bio ref={bioRef} />
+      <Bio />
       <Category
         categories={categories}
         category={category}
@@ -81,7 +76,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { category: { ne: null }, draft: { eq: false } } }
+      filter: { frontmatter: { category: { ne: null } } }
     ) {
       edges {
         node {
@@ -93,7 +88,6 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             category
-            draft
           }
         }
       }

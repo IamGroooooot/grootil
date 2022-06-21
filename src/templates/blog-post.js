@@ -16,7 +16,8 @@ import { Utterances } from '../components/utterances'
 import * as ScrollManager from '../utils/scroll'
 
 import '../styles/code.scss'
-import 'katex/dist/katex.min.css'
+import '../styles/post.scss'
+import { RevueButton } from '../components/revue-button'
 
 export default ({ data, pageContext, location }) => {
   useEffect(() => {
@@ -26,20 +27,30 @@ export default ({ data, pageContext, location }) => {
 
   const post = data.markdownRemark
   const metaData = data.site.siteMetadata
-  const { title, comment, siteUrl, author, sponsor } = metaData
+  const { title, comment, siteUrl, author, sponsor, revueId } = metaData
   const { disqusShortName, utterances } = comment
-  const { title: postTitle, date } = post.frontmatter
+  const { title: postTitle, date, thumbnail } = post.frontmatter
+  const thumbnailSrc = thumbnail
+    ? `${siteUrl}${thumbnail.childImageSharp.fixed.src}`
+    : undefined
 
   return (
     <Layout location={location} title={title}>
-      <Head title={postTitle} description={post.excerpt} />
+      <Head
+        title={postTitle}
+        description={post.excerpt}
+        thumbnail={thumbnailSrc}
+      />
       <PostTitle title={postTitle} />
       <PostDate date={date} />
       <PostContainer html={post.html} />
       <SocialShare title={postTitle} author={author} />
-      {!!sponsor.buyMeACoffeeId && (
-        <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
-      )}
+      <div className="flex end">
+        {!!sponsor.buyMeACoffeeId && (
+          <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
+        )}
+        {revueId != null ? <RevueButton revueId={revueId} /> : null}
+      </div>
       <Elements.Hr />
       <Bio />
       <PostNavigator pageContext={pageContext} />
@@ -70,6 +81,7 @@ export const pageQuery = graphql`
         sponsor {
           buyMeACoffeeId
         }
+        revueId
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -79,6 +91,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        thumbnail {
+          childImageSharp {
+            fixed(width: 800) {
+              src
+            }
+          }
+        }
       }
     }
   }
