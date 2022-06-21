@@ -43,6 +43,6 @@ module.exports = {
     facebookAppId: '', // v3.2
   },
   revueId: '',
-  ga: '',
+  ga: 'UA-232482999-1',
   sentryDsn: '',
 }
