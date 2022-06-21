@@ -1,13 +1,13 @@
 ---
 title: 'about'
-date: 2019-1-27 16:21:13
+date: 2022-6-22 02:03:26
 lang: 'en'
 ---
 
-# Your name
+# Juhyeong Ko
 
 <div align="center">
 
-_Thank you for reading my resume. If you want to contact me, Please send me an email._
+_Thank you for reading my resume. If you want to know more about me, Please visit my blog(coding-groot.tistory.com)._
 
 </div>
