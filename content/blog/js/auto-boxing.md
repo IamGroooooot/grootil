@@ -1,5 +1,5 @@
 ---
-title: 'about js'
+title: 'AutoBoxing에 관해서'
 date: 2022-06-23 02:23:05
 category: js
 thumbnail: './images/autoboxing.png'
