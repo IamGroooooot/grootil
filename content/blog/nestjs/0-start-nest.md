@@ -6,7 +6,7 @@ thumbnail: './images/book1.png'
 draft: false
 ---
 
-![images/book1.png](./images/images/book1.png)
+![images/book1.png](./images/book1.png)
 
 ## NestJS를 사용하기로 했다
 
