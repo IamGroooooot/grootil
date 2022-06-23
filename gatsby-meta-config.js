@@ -37,7 +37,7 @@ module.exports = {
     countOfInitialPost: 10,
   },
   sponsor: {
-    buyMeACoffeeId: '',
+    buyMeACoffeeId: 'grootil',
   },
   share: {
     facebookAppId: '', // v3.2
