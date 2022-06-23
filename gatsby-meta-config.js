@@ -1,7 +1,7 @@
 module.exports = {
   title: `Groot Til`,
   description: `Blog posted about my daily learned stuffs.`,
-  author: `Juhyeog Ko`,
+  author: `Juhyeong Ko`,
   introduction: `Web Engineer Interested in WebRTC`,
   siteUrl: `https://grootil.netlify.app`,
   social: {
