@@ -15,7 +15,7 @@ Adapter Pattern을 사용하면 내가 어떤 라이브러리를 쓰든 호환�
 
 ### Dependency
 NestJS에서 Adapter를 이용해서 Redis를 사용하기 위해서 설치해야 되는 패키지는 3가지다.
-```javascript
+```bash
 # npm을 쓰는 경우
 npm i --save redis socket.io @socket.io/redis-adapter
 # yarn을 쓰는 경우
