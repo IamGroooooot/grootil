@@ -72,7 +72,7 @@ Socket.IO Server에 기본적으로 내장되어 있는 어댑터를 확장해�
 #### socket.io-redis
 `@socket.io/redis-adapter`로 이름이 바뀐 것이다. 
 
-v7부터 관련된 패키지(`@socket.io/redis-emitter`)와 이름명을 바꿔주기 위해 패키지명만 바꿨다고 한다. 
+v7부터 관련된 패키지(`@socket.io/redis-emitter`)와 이름을 통일하기 위해 패키지명만 바꿨다고 한다. 
 아직 통신 프로토콜은 같기 때문에 `@socket.io/redis-adapter`랑 같이 사용해도 상관 없다.
 
 
