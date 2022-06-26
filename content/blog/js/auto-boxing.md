@@ -1,5 +1,5 @@
 ---
-title: 'AutoBoxing에 관해서'
+title: 'Auto Boxing에 관해서'
 date: 2022-06-23 02:23:05
 category: js
 thumbnail: './images/autoboxing.png'
@@ -58,3 +58,10 @@ console.log(myString.newProp) // 존재하지 않음!!
 ```
 
 ![newProp](./images/autoboxing.png)
+
+모든 원시형이 그런 것은 아니고 null과 undefined는 wrapper 객체가 없다. 이 두개의 원시값을 제외하고 나머지 원시값들만 래핑한 객체를 가질 수 있다.
+
+---
+## 참고 
+- [MDN-javascript에서의_원시_래퍼_객체](https://developer.mozilla.org/ko/docs/Glossary/Primitive#javascript%EC%97%90%EC%84%9C%EC%9D%98_%EC%9B%90%EC%8B%9C_%EB%9E%98%ED%8D%BC_%EA%B0%9D%EC%B2%B4)
+
