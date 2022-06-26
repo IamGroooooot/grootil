@@ -1,5 +1,5 @@
 ---
-title: 'JestJS 공부를 시작하며...'
+title: 'NestJS 공부를 시작하며...'
 date: 2022-06-23 11:04:76
 category: nestjs
 thumbnail: './images/book1.png'
