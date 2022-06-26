@@ -6,12 +6,12 @@ thumbnail: './images/socketio-version.jpg'
 draft: false
 ---
 
-## Nest Adapter
-Redis를 사용할 때 Nest에서 지원해주는 Adapter를 사용하려고 한다.
+## NestJS에서 제공해주는 Adapter
+Redis를 사용할 때 NestJS에서 지원해주는 Adapter를 사용하려고 한다.
 
 ### 이유
 Adapter Pattern을 사용하면 내가 어떤 라이브러리를 쓰든 호환이 된다.
-똑같이 `WebSocketAdapter` interface를 통해 아무런 라이브러리나 쓸 수 있게 된다.
+똑같이 `WebSocketAdapter` Interface를 통해 아무런 라이브러리나 쓸 수 있게 된다.
 
 ### Dependency
 NestJS에서 Adapter를 이용해서 Redis를 사용하기 위해서 설치해야 되는 패키지는 3가지다.
@@ -29,7 +29,7 @@ Redis client를 사용하기 위해 필요하다.
 >  https://www.npmjs.com/package/redis
 
 #### 2. socket.io
-nodejs 서버도 만들 수 있고 웹 상에서 소켓통신을 할 때 크로스브라우징 같은 것을 신경 쓰지 않고 여러 편의 API를 사용하기 위해 필요하다.
+NodeJS 서버도 만들 수 있고 웹 상에서 소켓 통신을 할 때 크로스브라우징 같은 것을 신경 쓰지 않고 여러 편의 API를 사용하기 위해 필요하다.
 
 > Socket.IO enables real-time bidirectional event-based communication
 >  https://www.npmjs.com/package/socket.io
@@ -37,7 +37,7 @@ nodejs 서버도 만들 수 있고 웹 상에서 소켓통신을 할 때 크로�
 나 같은 경우에는 예전에 `@nestjs/platform-socket.io`을 설치해서 이것의 dependency로 `socket.io`가 이미 깔려있었다.
 
 #### 3. @socket.io/redis-adapter
-Socket.IO Server에 기본적으로 내장되어 있는 어댑터를 확장해준다. 기본 어댑터의 브로드캐스트 함수를 확장한다.
+Socket.IO Server에 기본적으로 내장되어 있는 어댑터를 확장해준다. 기본 어댑터의 broadcast 함수를 확장한다.
 
 > adapter extends the in-memory adapter that is included by default with the Socket.IO server.
 >  https://www.npmjs.com/package/@socket.io/redis-adapter
@@ -49,11 +49,11 @@ Socket.IO Server에 기본적으로 내장되어 있는 어댑터를 확장해�
 
 나는 다른 패키지의 `socket.io`가 dependency로 깔려서 버전을 `package.json`에서 확인할 수 없었고 lock 파일에서 `socket.io`의 버전을 확인할 수 있었다. 
 
-나는 `yarn`을 써서 yarn.lock을 확인해본 결과 아래와 같았다.
+나는 `yarn`을 써서 `yarn.lock`을 확인해본 결과 아래와 같았다.
 
 ![images/socketio-version.jpg](./images/socketio-version.jpg)
 
-위에 보시다시피 `socket.io` "4.5.1"로 최신 redis-apdapter 패키지와 호환돼서 최신 버전을 깔았다.
+위에 보시다시피 `socket.io` "4.5.1"로 최신 `redis-adapter` 패키지와 호환돼서 최신 버전을 깔았다.
 
 ### 주의할 점
 다른 블로그 글을 읽다보면 똑같은걸 쓰는 것 같은데 깔아주는게 더 많거나 다른 것을 깔아준다. 
