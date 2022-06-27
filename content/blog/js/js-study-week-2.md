@@ -142,13 +142,12 @@ line 13: `d`는 뭐야
     - 표준 됨
 
 ##### 왜 씀?
-    - Encapsulation, Protection, Abstraction, Information hiding
-        - 코드가 길어지면
-        - 글로벌 네임스페이스, 콜리션되는 것을 보호하기 위해
-        - 1000개의 함수가 있는데 1개만 글로벌이길 원한다면?
+Encapsulation, Protection, Abstraction, Information hiding
+    - 코드가 길어지면
+    - 글로벌 네임스페이스, 콜리션되는 것을 보호하기 위해
+    - 1000개의 함수가 있는데 1개만 글로벌이길 원한다면?
 
 ##### Declaration vs Expression
-{}이거 불가능
 어떻게 함수나 변수를 숨길까?
 `function -> decl`
 `(function)-> exppr`
@@ -164,11 +163,11 @@ line 13: `d`는 뭐야
 
  
 #### 더 많은 Scope
-(Es5)
+(es5)
 - global scope
 - function scope
 - try/catch scope 
-(Es6)
+(es6)
 - block level
 
 ##### Block Scope
@@ -215,16 +214,16 @@ for(let i=1; i<6; i++){
 - `var`은 함수 전체에 묶인다
 
 #### 카일 심슨이 주장하는 `let`의 문제 
-- ~~~hoist안 됨~~~ -> 공식문서상 됨
-    - 제일 처음에 let을 넣어야 됨
+- ~~hoist안 됨~~ -> 공식문서상 됨
+    - 제일 처음에 `let`을 넣어야 됨
     - https://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-hoisted
-    - 말이 많음... init안된다고 하기도 함
+    - 말이 많음... => 호이스팅은 되지만 초기화가 안 된다
         - initialized되지 않은 것을 접근하면 Reference Error 
         - feat by. `temporally dead zone`
         - `eval` 돼야지 initialize
 - 리팩터링할 때 추가적으로 블럭을 신경써야됨
     - `var`는 함수면 상관 없음
-- implicit 
+- Implicit하다 
     - `let`일 수도 아닐 수도
     - 중간에 가다가 `let`으로 선언될 수도..
 ```js
@@ -234,8 +233,8 @@ if(a) {
 }
 ```
 
-#### 새로운 제시
-Let Block (Explicit함!)
+#### 새로운 제시: Let Block 
+Explicit한 새로운 문법
 ```js
 function foo(bar) {
   let (baz=bar) {
@@ -246,7 +245,7 @@ function foo(bar) {
 foo("bar")
 ```
 - 선언은 무조건 위에
-- explicit block - let이 쓰인다는 것이 확실
+- Explicit Block - `let`이 쓰인다는 것이 확실
 - tc39가 거절함 (es6)
 
 ##### 해결법
@@ -350,8 +349,8 @@ function foo() {
 1. 함수가 제일 위로 올라간다
 2. 변수가 제일 위로 올라간다
 
-function은 hoist로 덮힐수도 있음
-이미 foo라는 변수가 있으므로 var foo선언은 무시 됨.
+Function은 hoist로 덮힐수도 있음
+이미 `foo`라는 변수가 있으므로 `var foo` 선언은 무시 됨.
 
 교훈: 같은 이름을 쓰지말자..
 
