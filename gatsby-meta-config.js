@@ -1,5 +1,5 @@
 module.exports = {
-  title: `Groot Til`,
+  title: `Groot TIL`,
   description: `Blog posted about my daily learned stuffs.`,
   author: `Juhyeong Ko`,
   introduction: `Web Engineer Interested in WebRTC`,
