@@ -6,7 +6,8 @@ thumbnail: ''
 draft: false
 ---
 
-(주의) 정리 안 됨
+### (주의) 
+정리 안 됨
 
 ### 다룰 개념
 - Lexical Scoping
@@ -14,11 +15,11 @@ draft: false
 - 변수 shadowing: 가장 먼저 찾아진 것만 찾아 갈 수 있는 것
     - https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures
     - the inner identifier shadows the outer identifier
-- with문
-- eval
+- `with`문
+- `eval()`
 - IIFE
-- block scope
-- let의 문제
+- block Scope
+- `let`의 문제
 - hoisting
 - mutual recursion
 
@@ -149,13 +150,12 @@ line 13: `d`는 뭐야
 ##### Declaration vs Expression
 {}이거 불가능
 어떻게 함수나 변수를 숨길까?
-
 `function -> decl`
 `(function)-> exppr`
 `expr() -> 바로 실행`
 
 ##### 사용법
-```js 
+```js
 (funciton(global){
  // private
  global.aa = 23
@@ -189,7 +189,7 @@ foo();
 ```
 
 ##### Let 선언 예시 2
-```
+```js
 for(var i=1; i<6; i++){
    setTimeout(function(){
       console.log(i);
@@ -229,8 +229,8 @@ for(let i=1; i<6; i++){
     - 중간에 가다가 `let`으로 선언될 수도..
 ```js
 if(a) {
-   console.log(b); // temporal dead zone
-   let b = a; 
+  console.log(b); // temporal dead zone
+  let b = a;
 }
 ```
 
@@ -264,7 +264,7 @@ foo("bar")
 > 없는 기능을 JS로 transpile
 
 tc39에서 `let`을 테스트할 때 쓰는 transpiler(tracer: google)
-```
+```js
 try(throw void 0)catch
    /*let*/ (foo) {
     foo = "foo";
@@ -335,7 +335,7 @@ d = function() {
 ```
 
 ##### 코드 3 
-```
+```js
 foo();
 var foo = 2;
 function foo() {
@@ -359,7 +359,7 @@ function은 hoist로 덮힐수도 있음
 - 호이스팅(컴파일타임에 변수를 다 끌어오는 것)이 왜 필요할까?
     - Interpreter는 불가능 mutual recursion
     - 하나의 함수가 먼저 선언되므로 불가능할 것
-￼
+
 ---
 ### 출처 
  - [카일심슨-You Dont Know JS](https://github.com/getify/You-Dont-Know-JS)
